@@ -1,0 +1,596 @@
+/**
+    create by wangzili on 2018/1/21
+ */
+
+html, body{
+    height: 100%;
+    font-size: 20px;  /* 设置根字体大小，下文使用rem */
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 37.5rem;
+    width: 100%;
+    height: 100%;
+    background: #F3F4F6;
+}
+
+.main{
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/***********
+ * 底部导航
+ */
+
+.foot{
+    height: 3rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    background-color: #FFF;
+}
+
+.page-tabs{
+    display: flex;
+}
+
+.page-tab{
+    position: relative;
+    flex: 1;
+    padding: .4rem .75rem;
+    text-align: center;
+    font-size: .7rem;
+    text-decoration: none;
+    color: #adadad;
+}
+
+.page-tab:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: .4rem;
+    bottom: .4rem;
+    border-right: 1px solid #DDD;
+}
+
+.page-tab .icon{
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.page-tab-1 .icon{
+    background-image: url("../images/icon-user.png");
+}
+
+.page-tab-2 .icon{
+    background-image: url("../images/icon-user.png");
+}
+
+.page-tab-3 .icon{
+    background-image: url("../images/icon-user.png");
+}
+
+.page-tab.on{
+    color: #F17543;
+}
+
+.page-tab.on .icon{
+    background-position: 0 -25px;
+}
+
+/* foot end */
+
+
+/***********
+ * 顶部导航
+ * 左侧回退按钮/右侧下拉/中间搜索
+ */
+
+.topnav{
+    position: relative;
+    height: 2rem;
+    /*border-bottom: 1px solid #a3a3a3;*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    background-color: #FFF;
+}
+
+.topnav-title{
+    line-height: 2rem;
+    font-size: .75rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.topnav-left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: .5rem;
+}
+
+.topnav-left .btn-back{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/icon-back.png") no-repeat;
+    background-size: 100% auto;
+}
+
+.topnav-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.topnav .menu{
+    padding: .5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.topnav .btn-menu{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url("../images/icon-menu.png") no-repeat;
+    background-size: 100% auto;
+}
+
+.topnav .menu .dropdown{
+    padding: .5rem .65rem 1rem;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 2.25rem;
+    right: .5rem;
+    background-color: #000;
+    opacity: .4;
+    transform: scale(0);
+    transition: all .3s ease-out;
+    transform-origin: top right;
+}
+
+.topnav .menu .dropdown.show{
+    transform: scale(1);
+}
+
+.topnav .menu .dropdown a{
+    display: block;
+    padding: .6rem;
+    font-size: .65rem;
+    color: #FFF;
+    border-bottom: 1px dashed #FFF;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.topnav .btn-text{
+    padding: 0 .5rem;
+    height: 100%;
+    line-height: 2rem;
+    font-size: .65rem;
+    color: #EF6A32;
+}
+
+.topnav-input{
+    position: relative;
+    margin: .45rem auto;
+    padding: 0 1.65rem 0 .65rem;
+    width: 50%;
+    height: 1.3rem;
+    line-height: 1.1rem;
+    border: 1px solid #5c5277;
+    border-radius: .65rem;
+}
+
+.topnav-input .input{
+    padding: 0;
+    width: 100%;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    border: 0;
+    outline: none;
+    font-size: .65rem;
+}
+
+.topnav-input .btn-search{
+    position: absolute;
+    top: .15rem;
+    right: .65rem;
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 0;
+    background: url("../images/icon-find.png") no-repeat;
+    background-size: 100% auto;
+}
+
+/* 图片自适应 */
+img{
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* loading */
+.loading{
+    padding: 1rem 0;
+    text-align: center;
+    font-size: .6rem;
+    color: #ccc;
+}
+
+.loading img{
+    width: 2.5rem;
+}
+
+/* 弹窗遮罩层 */
+.mask{
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right:0;
+    top: 0;
+    bottom:0;
+    display: none;
+    background-color: rgba(0, 0, 0, .5);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.popbox{
+    z-index: 9999;
+    position: absolute;
+    left: .75rem;
+    right: .75rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: .85rem;
+    height: 40rem;
+    border-radius: .5rem;
+    background-color: #FFF;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transition: all ease-out .5s;
+    -webkit-transition: all ease-out .5s;
+    -moz-transition: all ease-out .5s;
+    -o-transition: all ease-out .5s;
+    transform-origin: 50% 20%;
+    -webkit-transform-origin: 50% 20%;
+    -moz-transform-origin: 50% 20%;
+    -o-transform-origin: 50% 20%;
+}
+
+.popbox.show{
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.popbox .close{
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/icon-close.png") no-repeat 50% 50%;
+    background-size: 100% auto;
+}
+
+/* 条目 */
+.cells{
+    margin: .5rem 0;
+    /*border-top: 1px solid #aea5c7;*/
+    /*border-bottom: 1px solid #aea5c7;*/
+    background-color: #FFF;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.cell{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: .6rem .8rem;
+    font-size: .7rem;
+    line-height: 1.1rem;
+    text-decoration: none;
+}
+
+.cell:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    left: .8rem;
+    right: .8rem;
+    bottom: 0;
+    height: 1px;
+    background-color: #DDD;
+}
+
+.cell .label{
+    flex: 1;
+    color:#333;
+}
+
+.cell .state{
+    color:#333;
+}
+
+.cell .arrow {
+    margin-left: .5rem;
+    width: 1rem;
+}
+
+/* 表单 */
+.form-item{
+    position: relative;
+    margin: 1.1rem 1rem;
+}
+
+.form-label{
+    margin: .2rem;
+    font-size: .65rem;
+}
+
+.form-row{
+    display: flex;
+}
+
+.form-input{
+    flex: 1;
+    padding: 0 .8rem;
+    border: 1px solid #bbb;
+    border-radius: .8rem;
+    background-color: #fff;
+}
+
+.form-input input{
+    padding: .25rem 0;
+    width: 100%;
+    height: 1rem;
+    line-height: .9rem;
+    font-size: .65rem;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.form-img-code{
+    width: 2rem;
+    text-align: center;
+}
+
+.form-img-code img{
+    width: auto;
+    height: 1.6rem;
+}
+
+.form-tel-code{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    font-size: .6rem;
+}
+
+.form .form-btns{
+    margin-top: 2rem;
+}
+
+.form-btns{
+    display: flex;
+}
+
+.form-btns .btn{
+    flex: 1;
+    margin: 0 1rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: .65rem;
+    text-align: center;
+    border-radius: .9rem;
+    text-decoration: none;
+    box-shadow: 3px 3px 5px rgba(0, 0,0,.2);
+}
+
+.form-btns .btn-primary{
+    color:#fff;
+    background: linear-gradient(to right, #F5A544 , #F26B33);
+}
+
+.form-btns .btn-minor{
+    color:#F26B33;
+    border: 1px solid #F26B33;
+}
+
+.form-error{
+    position: absolute;
+    left: .5rem;
+    bottom: -.9rem;
+    font-size: .6rem;
+    color:#c00;
+}
+
+/* 注册 */
+.registry-container{
+    padding: 1rem;
+}
+
+.info-container .cell .label{
+    flex: none;
+    width: 4rem;
+    text-align: center;
+}
+
+.info-container .cell .input{
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.info-container .cell input{
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.info-container .form-btns{
+    margin-top: 2rem;
+}
+
+.success-container{
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.success-container .icon{
+    width: 2rem;
+}
+
+.success-container h2{
+    font-size: .8rem;
+}
+
+.success-container p{
+    padding: 0 1.5rem;
+    line-height: 1rem;
+    font-size: .7rem;
+}
+
+.success-container .form-btns{
+    margin-top: 2rem;
+}
+
+.pay-container{
+    padding-top: .5rem;
+}
+
+.pay-amount{
+    padding: 1rem;
+    font-size: .65rem;
+}
+
+.pay-amount .amount{
+    margin-top: .5rem;
+}
+
+.bank-container{
+    padding: 1rem;
+    border-top: 1px solid #DDD;
+    background-color:#FFF;
+}
+
+.bank-container p{
+    margin-top: 0;
+    font-size: .6rem;
+    line-height: 1.1rem;
+}
+
+.pay-type{
+    padding: .5rem 1rem;
+    font-size: .6rem;
+}
+
+.pay-type p{
+    margin: .5rem 0;
+}
+
+.pay-type span{
+    color: #c00;
+}
+
+.pay-container .form-btns{
+    margin-top: 1rem;
+}
+
+/* 发票 */
+.no-invoice{
+    padding-top: 2rem;
+    text-align: center;
+    font-size: .6rem;
+}
+
+.no-invoice img{
+    margin-bottom: .5rem;
+    width: 4rem;
+}
+
+
+/* 卡片 */
+.cards{
+    padding: 1rem .5rem;
+}
+
+.card{
+    position: relative;
+    margin: .7rem 0;
+    padding: 0 .8rem 0 1.5rem;
+    font-size: .65rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    background-color:#FFF;
+}
+
+.card-hd,
+.card-bd{
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.card-hd{
+    border-bottom: 1px solid #ddd;
+}
+
+.card-bd{
+    text-align: right;
+}
+
+.card-edit{
+    position: absolute;
+    right: .8rem;
+    top: 0;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.card-tag{
+    position: absolute;
+    left: 1.5rem;
+    bottom: .5rem;
+    padding: 0 .4rem;
+    height: 1rem;
+    line-height: 1rem;
+    border-radius: .6rem;
+    font-size: .6rem;
+    color: #fff;
+    background-color: #EF6A32;
+}
+
+.card-select{
+    position: absolute;
+    left: .25rem;
+    top: 50%;
+    margin-top: -.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/icon-user.png") no-repeat;
+    background-size: cover;
+}
+
+.card.selected .card-select{
+    background-position: 0 -1rem;
+}
+
+
