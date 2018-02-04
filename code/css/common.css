@@ -14,7 +14,11 @@ html, body{
     max-width: 37.5rem;
     width: 100%;
     height: 100%;
-    background: #F3F4F6;
+}
+
+.app-bg{
+    background: url("../images/bg.jpg") no-repeat center bottom #F3F4F6;
+    background-size: 100% auto;
 }
 
 .main{
@@ -28,9 +32,9 @@ html, body{
  */
 
 .foot{
-    height: 3rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-    background-color: #FFF;
+    height: 3.75rem;
+    /*box-shadow: 0 0 5px rgba(0, 0, 0, .2);*/
+    /*background-color: #FFF;*/
 }
 
 .page-tabs{
@@ -40,20 +44,21 @@ html, body{
 .page-tab{
     position: relative;
     flex: 1;
-    padding: .4rem .75rem;
+    padding: .8rem .75rem;
     text-align: center;
     font-size: .7rem;
     text-decoration: none;
-    color: #adadad;
+    color: #666;
 }
 
 .page-tab:not(:last-child)::after{
     content: '';
     position: absolute;
     right: 0;
-    top: .4rem;
-    bottom: .4rem;
-    border-right: 1px solid #DDD;
+    top: .8rem;
+    bottom: .8rem;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #FFF;
 }
 
 .page-tab .icon{
@@ -65,19 +70,19 @@ html, body{
 }
 
 .page-tab-1 .icon{
-    background-image: url("../images/icon-user.png");
+    background-image: url("../images/icon-tab-1.png");
 }
 
 .page-tab-2 .icon{
-    background-image: url("../images/icon-user.png");
+    background-image: url("../images/icon-tab-2.png");
 }
 
 .page-tab-3 .icon{
-    background-image: url("../images/icon-user.png");
+    background-image: url("../images/icon-tab-3.png");
 }
 
 .page-tab.on{
-    color: #F17543;
+    color: #f16b33;
 }
 
 .page-tab.on .icon{
@@ -176,7 +181,7 @@ html, body{
     padding: 0 .5rem;
     height: 100%;
     line-height: 2rem;
-    font-size: .65rem;
+    font-size: .7rem;
     color: #EF6A32;
 }
 
@@ -314,12 +319,36 @@ img{
     right: .8rem;
     bottom: 0;
     height: 1px;
-    background-color: #DDD;
+    background-color: #d4cfe3;
 }
 
 .cell .label{
     flex: 1;
+    padding: 0 .4rem;
     color:#333;
+}
+
+.cell .label .icon{
+    display: inline-block;
+    margin-right: .5rem;
+    width: 1rem;
+    height: 1rem;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 -1rem;
+    vertical-align: middle;
+}
+
+.cell.user .label .icon{
+    background-image: url("../images/icon-tab-3.png");
+}
+
+.cell.invoice .label .icon{
+    background-image: url("../images/icon-tab-2.png");
+}
+
+.cell.pay .label .icon{
+    background-image: url("../images/icon-tab-1.png");
 }
 
 .cell .state{
@@ -331,10 +360,35 @@ img{
     width: 1rem;
 }
 
+.cell-input.cell .label{
+    flex: none;
+    min-width: 2.8rem;
+}
+
+.cell-input.cell .input{
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.cell-input.cell input{
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.cell .al-toggle-button{
+    margin-top: -3px;
+}
+
 /* 表单 */
+.form{
+    margin: 0 1rem;
+}
+
 .form-item{
     position: relative;
-    margin: 1.1rem 1rem;
+    margin: 1.4rem 0;
 }
 
 .form-label{
@@ -350,12 +404,12 @@ img{
     flex: 1;
     padding: 0 .8rem;
     border: 1px solid #bbb;
-    border-radius: .8rem;
+    border-radius: .9rem;
     background-color: #fff;
 }
 
 .form-input input{
-    padding: .25rem 0;
+    padding: .35rem 0;
     width: 100%;
     height: 1rem;
     line-height: .9rem;
@@ -366,8 +420,8 @@ img{
 }
 
 .form-img-code{
-    width: 2rem;
-    text-align: center;
+    width: 4.5rem;
+    text-align: right;
 }
 
 .form-img-code img{
@@ -380,8 +434,8 @@ img{
     top: 0;
     right: 0;
     padding: 0 1rem;
-    height: 1.6rem;
-    line-height: 1.6rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
     font-size: .6rem;
 }
 
@@ -413,37 +467,20 @@ img{
 .form-btns .btn-minor{
     color:#F26B33;
     border: 1px solid #F26B33;
+    background: #fff;
 }
 
 .form-error{
     position: absolute;
     left: .5rem;
-    bottom: -.9rem;
+    bottom: -1rem;
     font-size: .6rem;
-    color:#c00;
+    color:#ec0000;
 }
 
 /* 注册 */
 .registry-container{
-    padding: 1rem;
-}
-
-.info-container .cell .label{
-    flex: none;
-    width: 4rem;
-    text-align: center;
-}
-
-.info-container .cell .input{
-    flex: 1;
-    padding: 0 1rem;
-}
-
-.info-container .cell input{
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
+    padding: .45rem 0;
 }
 
 .info-container .form-btns{
@@ -451,82 +488,181 @@ img{
 }
 
 .success-container{
-    padding-top: 1.5rem;
+    padding-top: 1.6rem;
     text-align: center;
 }
 
 .success-container .icon{
-    width: 2rem;
+    width: 2.75rem;
 }
 
 .success-container h2{
-    font-size: .8rem;
+    margin-top: 1rem;
+    font-size: .9rem;
 }
 
 .success-container p{
     padding: 0 1.5rem;
-    line-height: 1rem;
+    line-height: 1.2rem;
     font-size: .7rem;
 }
 
 .success-container .form-btns{
-    margin-top: 2rem;
+    margin: 2.2rem 1.2rem;
 }
 
 .pay-container{
-    padding-top: .5rem;
+    padding-top: .8rem;
 }
 
 .pay-amount{
-    padding: 1rem;
-    font-size: .65rem;
+    padding: 1rem .7rem;
+    font-size: .7rem;
 }
 
 .pay-amount .amount{
-    margin-top: .5rem;
+    margin-top: 1rem;
+}
+
+.pay-amount .amount .icon{
+    display: inline-block;
+    margin-right: .5rem;
+    width: .85rem;
+    height: .85rem;
+    background: url("../images/icon-select.png") no-repeat 0 -.85rem;
+    background-size: 100% auto;
+    vertical-align: middle;
 }
 
 .bank-container{
     padding: 1rem;
     border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    text-align: justify;
     background-color:#FFF;
 }
 
 .bank-container p{
     margin-top: 0;
-    font-size: .6rem;
+    font-size: .65rem;
     line-height: 1.1rem;
 }
 
 .pay-type{
-    padding: .5rem 1rem;
-    font-size: .6rem;
+    padding: .5rem 1rem .8rem;
+    font-size: .65rem;
 }
 
 .pay-type p{
-    margin: .5rem 0;
+    margin: .7rem 0;
 }
 
 .pay-type span{
     color: #c00;
 }
 
-.pay-container .form-btns{
-    margin-top: 1rem;
+.pay-type .icon{
+    margin-right: .35rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 /* 发票 */
 .no-invoice{
     padding-top: 2rem;
     text-align: center;
-    font-size: .6rem;
+    font-size: .7rem;
 }
 
 .no-invoice img{
     margin-bottom: .5rem;
-    width: 4rem;
+    width:7.5rem;
 }
 
+.invoice-state-container .tip{
+    padding: .9rem 1rem;
+    font-size: .6rem;
+    text-align: center;
+    color: #999;
+}
+
+.invoice-state{
+    margin-top: .5rem;
+    padding: 1.3rem 0;
+    border-top: 1px solid #d4cfe3;
+    border-bottom: 1px solid #d4cfe3;
+    background: #FFF;
+}
+
+.invoice-state p{
+    margin: 1rem 1.3rem 0;
+    font-size: .7rem;
+}
+
+.invoice-step{
+    position: relative;
+    display: flex;
+}
+
+.invoice-step .step{
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font-size: .7rem;
+    color: #f06a33;
+}
+
+.invoice-step img{
+    margin-bottom: .65rem;
+    width: 1.1rem;
+}
+
+.invoice-step .step:not(:first-child)::before{
+    content: '';
+    position: absolute;
+    top: .5rem;
+    left: 0;
+    width: 50%;
+    border-top: 1px solid #f06a33;
+}
+
+
+
+.invoice-step .step:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    width: 50%;
+    border-top: 1px solid #f06a33;
+}
+
+.invoice-step .step.pass{
+    opacity: .5;
+}
+
+.invoice-info{
+    margin-top: .5rem;
+    padding: .5rem;
+    border-top: 1px solid #d4cfe3;
+    border-bottom: 1px solid #d4cfe3;
+    background: #FFF;
+}
+
+.invoice-info h2{
+    margin-bottom: 1rem;
+    font-size: .75rem;
+}
+
+.invoice-info p{
+    font-size: .7rem;
+}
+
+.invoice-info span{
+    float: right;
+    margin-right: 3rem;
+    color: #666;
+}
 
 /* 卡片 */
 .cards{
@@ -537,7 +673,7 @@ img{
     position: relative;
     margin: .7rem 0;
     padding: 0 .8rem 0 1.5rem;
-    font-size: .65rem;
+    font-size: .7rem;
     border-radius: .3rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, .2);
     background-color:#FFF;
@@ -545,8 +681,8 @@ img{
 
 .card-hd,
 .card-bd{
-    height: 2rem;
-    line-height: 2rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
 }
 
 .card-hd{
@@ -561,14 +697,14 @@ img{
     position: absolute;
     right: .8rem;
     top: 0;
-    height: 2rem;
-    line-height: 2rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
 }
 
 .card-tag{
     position: absolute;
     left: 1.5rem;
-    bottom: .5rem;
+    bottom: .7rem;
     padding: 0 .4rem;
     height: 1rem;
     line-height: 1rem;
@@ -585,7 +721,7 @@ img{
     margin-top: -.5rem;
     width: 1rem;
     height: 1rem;
-    background: url("../images/icon-user.png") no-repeat;
+    background: url("../images/icon-select.png") no-repeat;
     background-size: cover;
 }
 
@@ -593,4 +729,187 @@ img{
     background-position: 0 -1rem;
 }
 
+/* 发票信息 */
+.invoice-container{
+    padding-bottom: 1rem;
+}
 
+
+/* 仿ios按钮效果 */
+.al-toggle-button{
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 52px;
+    height: 26px;
+    background: #dfdfdf;
+    border-radius: 13px;
+    border: 1px solid #dfdfdf;
+    outline: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+.al-toggle-button:checked{
+    border-color: #F06A34;
+    background-color: #F06A34;
+}
+.al-toggle-button:before, .al-toggle-button:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+}
+.al-toggle-button:before{
+    width: 50px;
+    background-color: #fdfdfd;
+}
+.al-toggle-button:after{
+    width: 24px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.al-toggle-button:checked:before{
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.al-toggle-button:checked:after{
+    transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+}
+
+/* radio美化 */
+.radio{
+    display: inline-block;
+    position: relative;
+    line-height: 18px;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+.radio input{
+    display: none;
+}
+.radio .radio-bg{
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+    padding: 0;
+    background-color: #F06A34;
+    border-radius: 100%;
+    vertical-align: top;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1) inset, 0 1px 4px rgba(0, 0, 0, 0.1) inset, 1px -1px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.radio .radio-on{
+    display: none;
+}
+.radio input:checked + span.radio-on{
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    /*border-radius: 100%;*/
+    /*background: #FFFFFF;*/
+    top: 4px;
+    left: 3px;
+    /*box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.4) inset;*/
+    /*background-image: linear-gradient(#ffffff 0, #e7e7e7 100%);*/
+    border-left: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    transform: scale(0, 0) rotate(-45deg);
+    transition: all 0.2s ease;
+    transform: scale(1, 1) rotate(-45deg);
+    display: inline-block;
+}
+
+
+/* 新增发票 */
+.addinvoice-container{
+    padding-bottom: 1.75rem;
+}
+
+.addinvoice-container .tip{
+    margin: .8rem 0 1.5rem;
+    padding: 0 1.35rem;
+    font-size: .6rem;
+    line-height: 1rem;
+    text-align: justify;
+    color: #999;
+}
+
+/* 过度页 */
+.index{
+    padding-bottom: 1rem;
+}
+
+.index-bg{
+    overflow: hidden;
+    background: linear-gradient(#FFF, #8dc3ee);
+}
+
+.index-logo{
+    margin: 1.5rem auto 0;
+    padding-top: 1.25rem;
+    max-width: 16.25rem;
+    width: 80%;
+    font-size: .7rem;
+    line-height: 1rem;
+    text-align: center;
+    background: url("../images/img-index-1.png") no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.index-logo .logo{
+    width: 8.5rem;
+}
+
+.index-logo p{
+    margin: 0;
+    padding: .9rem 1.6rem;
+    text-align: justify;
+}
+
+.index-text{
+
+    margin: 0 auto;
+    max-width: 16.25rem;
+    width: 80%;
+    font-size: .7rem;
+    line-height: 1rem;
+    text-align: center;
+    background: linear-gradient(#f3f9fd, #fff);
+
+}
+
+.index-text p{
+    margin: 0;
+    padding: .9rem 1.6rem;
+    text-align: justify;
+}
+
+.btn-go{
+    border-top: 1px solid #999;
+
+}
+
+.btn-go a{
+    display: block;
+    padding: .5rem 0;
+    font-size: .8rem;
+    text-align: center;
+    background-color: #f4f4f4;
+    text-decoration: none;
+    color:#333;
+}
+
+.btn-go .icon{
+    margin-right: .5rem;
+    width: 2.5rem;
+    vertical-align: middle;
+}

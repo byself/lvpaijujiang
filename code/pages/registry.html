@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/common.css">
     </head>
     <body>
-    <div class="app">
+    <div class="app app-bg">
 
         <header class="topnav">
             <div class="topnav-title">开始注册</div>
@@ -40,7 +40,7 @@
                     <div class="form-item">
                         <div class="form-row">
                             <div class="form-input"><input type="tel" maxlength="11" value="" placeholder="请输入图片验证码" /></div>
-                            <div class="form-img-code"><img src="../images/icon-close.png" alt=""></div>
+                            <div class="form-img-code"><img src="../images/img-vcode.png" alt=""></div>
                         </div>
 
                         <div class="form-error">
@@ -49,17 +49,18 @@
                     </div>
                     <div class="form-item">
                         <div class="form-row">
-                            <div class="form-input"><input type="tel" maxlength="11" value="" placeholder="请输入手机验证码" /></div>
-                            <div class="form-tel-code">获取验证码</div>
+                            <div class="form-input"><input type="text" maxlength="4" value="" placeholder="请输入手机验证码" /></div>
+                            <div class="form-tel-code" id="btnVcode">获取验证码</div>
                         </div>
 
                         <div class="form-error">
                             请输入您的手机号码
                         </div>
                     </div>
-                    <div class="form-btns">
-                        <a class="btn btn-primary" href="info.html">下一步</a>
-                    </div>
+                </div>
+
+                <div class="form-btns">
+                    <a class="btn btn-primary" href="info.html">下一步</a>
                 </div>
 
             </div>
@@ -68,5 +69,43 @@
     </div>
 
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+
+        /**
+         *  发送验证码倒计时
+         */
+
+        function CountDown() {
+            var SECONDS = 60; // 倒计时描述
+
+            var $btn = $("#btnVcode");
+            var timer = null;
+
+            var text = SECONDS + "s后重新发送";
+            $btn.unbind().text(text);
+
+            var count = function(){
+                if(SECONDS > 0){
+                    text = --SECONDS + "s后重新发送";
+                }else{
+                    clearInterval(timer);
+                    text = "发送验证码";
+                    $btn.on("click", CountDown);
+                }
+
+                $btn.text(text);
+
+            };
+
+            timer = setInterval(count, 1000);
+        }
+
+        $(function(){
+
+            $("#btnVcode").on("click", CountDown);
+
+        })
+
+    </script>
     </body>
 </html>

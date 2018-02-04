@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>律派巨匠</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/common.css">
+    </head>
+    <body>
+    <div class="app app-bg">
+
+        <header class="topnav">
+            <div class="topnav-title">新增发票</div>
+            <div class="topnav-left">
+                <a class="btn-back"></a>
+            </div>
+        </header>
+
+        <main class="main">
+
+            <div class="addinvoice-container">
+
+                <div class="cells">
+                    <div class="cell cell-input">
+                        <div class="label">
+                            抬头名称
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="请输入抬头名称"/>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="label">
+                            设置为默认抬头
+                        </div>
+                        <div class="input">
+                            <input type="checkbox" class="al-toggle-button">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cells">
+                    <div class="cell cell-input">
+                        <div class="label">
+                            <label for="company" class="radio">
+                                <span class="radio-bg"></span>
+                                <input type="radio" name="type" id="company" value="公司" checked="checked" />公司
+                                <span class="radio-on"></span>
+                            </label>
+                            <label for="person" class="radio">
+                                <span class="radio-bg"></span>
+                                <input type="radio" name="type" id="person" value="个人" />个人
+                                <span class="radio-on"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell cell-input">
+                        <div class="label">
+                            税号
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="输入纳税人识别号"/>
+                        </div>
+                    </div>
+                    <div class="cell cell-input">
+                        <div class="label">
+                            单位地址
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="收票单位注册地址"/>
+                        </div>
+                    </div>
+                    <div class="cell cell-input">
+                        <div class="label">
+                            电话号码
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="输入公司电话号码"/>
+                        </div>
+                    </div>
+                    <div class="cell cell-input">
+                        <div class="label">
+                            开户银行
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="收据单位开户银行"/>
+                        </div>
+                    </div>
+                    <div class="cell cell-input">
+                        <div class="label">
+                            银行账号
+                        </div>
+                        <div class="input">
+                            <input type="text" value="" placeholder="收据单位银行账号"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    开票金额为以单比缴费订单、6%的增值税专业发票开票，发票提交后不支持线上更改，请仔细填写核对，如有问题可拨打客服电话：+86 (021) 64471581 进行咨询。
+                </div>
+
+                <div class="form-btns">
+                    <a class="btn btn-primary" href="addInvoice.html">下一步</a>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="foot">
+            <div class="page-tabs">
+                <a class="page-tab page-tab-1 on" href="pay.html">
+                    <i class="icon"></i>
+                    <div>选择缴费</div>
+                </a>
+                <a class="page-tab page-tab-2" href="invoice.html">
+                    <i class="icon"></i>
+                    <div>发票信息</div>
+                </a>
+                <a class="page-tab page-tab-3" href="user.html">
+                    <i class="icon"></i>
+                    <div>个人信息</div>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    </body>
+</html>

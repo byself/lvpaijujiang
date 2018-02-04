@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/common.css">
     </head>
     <body>
-    <div class="app">
+    <div class="app app-bg">
 
         <header class="topnav">
             <div class="topnav-title">添加收货地址</div>
@@ -22,7 +22,7 @@
                 <a class="btn-back"></a>
             </div>
             <div class="topnav-right">
-                <a class="btn-text" onclick="toast('新增发票成功')">保存</a>
+                <a class="btn-text" onclick="toast('成功新增发票')">保存</a>
             </div>
         </header>
 
@@ -31,7 +31,7 @@
             <div class="info-container">
 
                 <div class="cells">
-                    <div class="cell">
+                    <div class="cell cell-input">
                         <div class="label">
                             收件地址
                         </div>
@@ -39,15 +39,15 @@
                             <input type="text" value="" placeholder="请输入您的收件地址"/>
                         </div>
                     </div>
-                    <div class="cell">
+                    <div class="cell cell-input">
                         <div class="label">
                             电话号码
                         </div>
                         <div class="input">
-                            <input type="tel" maxlength="11" value="" placeholder="请输入您的电话号码"/>
+                            <input type="tel" maxlength="11" value="" placeholder="请输入收件人电话号码"/>
                         </div>
                     </div>
-                    <div class="cell">
+                    <div class="cell cell-input">
                         <div class="label">
                             联系人
                         </div>
@@ -59,6 +59,23 @@
             </div>
 
         </main>
+
+        <footer class="foot">
+            <div class="page-tabs">
+                <a class="page-tab page-tab-1 on" href="pay.html">
+                    <i class="icon"></i>
+                    <div>选择缴费</div>
+                </a>
+                <a class="page-tab page-tab-2" href="invoice.html">
+                    <i class="icon"></i>
+                    <div>发票信息</div>
+                </a>
+                <a class="page-tab page-tab-3" href="user.html">
+                    <i class="icon"></i>
+                    <div>个人信息</div>
+                </a>
+            </div>
+        </footer>
     </div>
 
     <script src="../js/jquery-3.2.1.min.js"></script>
